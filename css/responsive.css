@@ -1,0 +1,297 @@
+/* ============================================
+   RESPONSIVE DESIGN - TABLETS & MOBILE
+   ============================================ */
+
+/* ============================================
+   TABLET (768px and below)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 1rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .trading-table th,
+    .trading-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .learn-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .email-form {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   MOBILE (480px and below)
+   ============================================ */
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0.75rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--primary-white);
+        padding: 1rem;
+        gap: 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-link {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .nav-buttons.active {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-light);
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    .stats {
+        padding: 2rem 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem;
+    }
+
+    .trading-section {
+        padding: 2rem 1rem;
+        overflow-x: auto;
+    }
+
+    .trading-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .trading-table {
+        min-width: 600px;
+        font-size: 0.8rem;
+    }
+
+    .trading-table th,
+    .trading-table td {
+        padding: 0.5rem;
+    }
+
+    .btn-trade {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .learn-section {
+        padding: 2rem 1rem;
+    }
+
+    .learn-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .learn-card {
+        padding: 1.5rem;
+    }
+
+    .learn-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .email-capture {
+        padding: 2rem 1rem;
+    }
+
+    .email-capture h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .email-form input {
+        padding: 0.75rem;
+    }
+
+    .footer {
+        padding: 2rem 1rem 0.75rem;
+    }
+
+    .footer-container {
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .close {
+        right: 1rem;
+        top: 0.75rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================
+   SMALL MOBILE (320px and below)
+   ============================================ */
+
+@media (max-width: 320px) {
+    .logo {
+        font-size: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.25rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .navbar,
+    .hero-buttons,
+    .email-capture,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: var(--primary-white);
+    }
+
+    .trading-table {
+        border: 1px solid #000;
+    }
+
+    .trading-table th,
+    .trading-table td {
+        border: 1px solid #000;
+    }
+}
