@@ -39,6 +39,27 @@
         gap: 1rem;
     }
 
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-left h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-left p {
+        font-size: 1rem;
+    }
+
+    .email-input-group {
+        flex-direction: column;
+    }
+
+    .btn-get-started {
+        width: 100%;
+    }
+
     .stats-container {
         grid-template-columns: 1fr;
     }

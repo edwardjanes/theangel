@@ -99,6 +99,20 @@ function initializeButtons() {
 // ============================================
 
 function initializeEmailForm() {
+    // Hero email form
+    const heroEmailForm = document.getElementById('hero-email-form');
+    if (heroEmailForm) {
+        heroEmailForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            console.log('Hero email submitted:', email);
+            // Redirect to sign up with email
+            openModal('signup-modal');
+            this.reset();
+        });
+    }
+
+    // Footer email form
     const emailForm = document.getElementById('email-form');
     if (emailForm) {
         emailForm.addEventListener('submit', function(e) {
