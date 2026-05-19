@@ -18,6 +18,9 @@ function initializeNavigation() {
     const navButtons = document.querySelector('.nav-buttons');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // Highlight active page
+    setActiveNavLink();
+
     // Toggle mobile menu
     if (hamburger) {
         hamburger.addEventListener('click', function() {
@@ -46,6 +49,35 @@ function initializeNavigation() {
                 }
             }
         });
+    });
+}
+
+// ============================================
+// SET ACTIVE NAV LINK
+// ============================================
+
+function setActiveNavLink() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        // Handle home page
+        if (currentPage === '' || currentPage === '/' || currentPage.includes('index')) {
+            if (href === '#home' || href === 'index.html') {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        } else {
+            // Handle other pages
+            if (href === currentPage || href.includes(currentPage.replace('.html', ''))) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        }
     });
 }
 
