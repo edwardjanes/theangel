@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - TheAngel</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .docs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        .docs-sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        .docs-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .docs-sidebar li {
+            margin-bottom: 0.75rem;
+        }
+        .docs-sidebar a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .docs-sidebar a:hover {
+            color: #EC4899;
+        }
+        .docs-content h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #000;
+            font-size: 1.3rem;
+        }
+        .docs-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .docs-code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .docs-container {
+                grid-template-columns: 1fr;
+            }
+            .docs-sidebar {
+                position: relative;
+                top: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">TheAngel</a></div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="investors.html" class="nav-link">Investors</a></li>
+                <li><a href="founders.html" class="nav-link">Founders</a></li>
+                <li><a href="company.html" class="nav-link">Company</a></li>
+                <li><a href="docs.html" class="nav-link">Docs</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="hero-content">
+            <h1>Documentation</h1>
+            <p>Complete guides to help you get started</p>
+        </div>
+    </section>
+
+    <!-- Documentation Content -->
+    <section style="padding: 4rem 2rem;">
+        <div class="docs-container">
+            <!-- Sidebar -->
+            <aside class="docs-sidebar">
+                <h4 style="margin-bottom: 1.5rem; color: #000;">Table of Contents</h4>
+                <ul>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#account-setup">Account Setup</a></li>
+                    <li><a href="#investing">Investing Guide</a></li>
+                    <li><a href="#fundraising">Fundraising Guide</a></li>
+                    <li><a href="#trading">Trading & Liquidity</a></li>
+                    <li><a href="#security">Security & Compliance</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="docs-content">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Welcome to TheAngel</h2>
+
+                <section id="getting-started">
+                    <h3>Getting Started</h3>
+                    <p>TheAngel is a global platform that connects investors with founders. Whether you're an investor looking for opportunities or a founder seeking capital, you're in the right place.</p>
+                    <p>This documentation will guide you through:</p>
+                    <ul style="margin-left: 2rem; color: #666;">
+                        <li>Creating and verifying your account</li>
+                        <li>Making your first investment</li>
+                        <li>Listing your startup for fundraising</li>
+                        <li>Trading equity tokens</li>
+                        <li>Managing your portfolio</li>
+                    </ul>
+                </section>
+
+                <section id="account-setup">
+                    <h3>Account Setup</h3>
+                    <p><strong>Step 1: Create Your Account</strong></p>
+                    <p>Click the "Sign Up" button and choose your user type (Investor or Founder). Enter your email and create a password.</p>
+                    
+                    <p><strong>Step 2: Verify Your Email</strong></p>
+                    <p>Check your email for a verification link and click it to confirm your account.</p>
+                    
+                    <p><strong>Step 3: Complete KYC</strong></p>
+                    <p>Provide your basic information and complete our Know-Your-Customer verification process. This typically takes 5-10 minutes.</p>
+                    
+                    <p><strong>Step 4: Fund Your Account</strong></p>
+                    <p>Add funds via bank transfer, credit card, or cryptocurrency. Your funds will be available immediately after verification.</p>
+                </section>
+
+                <section id="investing">
+                    <h3>Investor Guide</h3>
+                    <p>Ready to invest in startups? Here's how to get started:</p>
+                    
+                    <p><strong>Browsing Opportunities</strong></p>
+                    <p>Visit the "Explore" section to view available investment opportunities. Filter by industry, location, or stage.</p>
+                    
+                    <p><strong>Making an Investment</strong></p>
+                    <p>Click on a startup to view details, financials, and the founding team. Click "Invest" to proceed with your investment.</p>
+                    
+                    <p><strong>Receiving Tokens</strong></p>
+                    <p>Your equity tokens will be credited to your wallet immediately after the investment is confirmed.</p>
+                    
+                    <p><strong>Portfolio Management</strong></p>
+                    <p>View all your investments in your dashboard. Track valuations, updates, and milestones from each company.</p>
+                </section>
+
+                <section id="fundraising">
+                    <h3>Founder Fundraising Guide</h3>
+                    <p>Ready to raise capital? Follow these steps:</p>
+                    
+                    <p><strong>Apply to List</strong></p>
+                    <p>Submit your company profile, financials, and pitch deck through our application portal.</p>
+                    
+                    <p><strong>Due Diligence</strong></p>
+                    <p>Our team will review your application. We may request additional documents or information.</p>
+                    
+                    <p><strong>Listing Approval</strong></p>
+                    <p>Once approved, we'll prepare your fundraising page and market materials.</p>
+                    
+                    <p><strong>Launch Campaign</strong></p>
+                    <p>Your listing goes live. Start receiving investments and grow your cap table.</p>
+                </section>
+
+                <section id="trading">
+                    <h3>Trading & Liquidity</h3>
+                    <p>One of the unique features of TheAngel is the ability to trade your equity tokens on our secondary market.</p>
+                    
+                    <p><strong>Selling Your Tokens</strong></p>
+                    <p>List your tokens on the marketplace at your desired price. Other investors can purchase them from you.</p>
+                    
+                    <p><strong>Price Discovery</strong></p>
+                    <p>Token prices are determined by supply and demand. Check the market data to understand current valuations.</p>
+                    
+                    <p><strong>Trading History</strong></p>
+                    <p>View your trading history and track your gains/losses in real-time through your dashboard.</p>
+                </section>
+
+                <section id="security">
+                    <h3>Security & Compliance</h3>
+                    <p><strong>Your Security</strong></p>
+                    <p>We use industry-leading security measures including:</p>
+                    <ul style="margin-left: 2rem; color: #666;">
+                        <li>256-bit SSL encryption for all data</li>
+                        <li>Two-factor authentication (2FA)</li>
+                        <li>Cold storage for digital assets</li>
+                        <li>Regular security audits</li>
+                    </ul>
+                    
+                    <p><strong>Regulatory Compliance</strong></p>
+                    <p>TheAngel is fully compliant with securities regulations in all jurisdictions where we operate. All investments are conducted under proper legal frameworks.</p>
+                    
+                    <p><strong>Best Practices</strong></p>
+                    <p>Always enable 2FA, never share your password, and verify URLs before logging in.</p>
+                </section>
+
+                <section id="faq">
+                    <h3>Frequently Asked Questions</h3>
+                    
+                    <p><strong>Q: What's the minimum investment?</strong></p>
+                    <p>A: You can invest from as little as $100, making startup investing accessible to everyone.</p>
+                    
+                    <p><strong>Q: How long does verification take?</strong></p>
+                    <p>A: Most verifications complete within 5-10 minutes. Complex cases may take up to 24 hours.</p>
+                    
+                    <p><strong>Q: Can I withdraw my investment?</strong></p>
+                    <p>A: You can trade your tokens on our marketplace. Liquidity depends on market demand.</p>
+                    
+                    <p><strong>Q: Are there fees?</strong></p>
+                    <p>A: We charge a 5% success fee on investments and a 2% fee on token trades. Transparent pricing, no hidden fees.</p>
+                    
+                    <p><strong>Q: What countries do you operate in?</strong></p>
+                    <p>A: We currently support investors and founders from 100+ countries. Check our platform for your region's availability.</p>
+                </section>
+
+                <section id="support">
+                    <h3>Support & Contact</h3>
+                    <p>Need help? Our support team is here for you:</p>
+                    <ul style="margin-left: 2rem; color: #666;">
+                        <li><strong>Email:</strong> support@theangel.app</li>
+                        <li><strong>Chat:</strong> Live chat available on the platform (9 AM - 6 PM UTC)</li>
+                        <li><strong>Community:</strong> Join our Slack community for discussions and updates</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>TheAngel</h4>
+                <p>Global startup investment platform</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="investors.html">Investors</a></li>
+                    <li><a href="founders.html">Founders</a></li>
+                    <li><a href="company.html">Company</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TheAngel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/modals.js"></script>
+</body>
+</html>
