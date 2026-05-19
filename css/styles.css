@@ -360,14 +360,14 @@ body {
 }
 
 .stat-number {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: 700;
     color: var(--primary-white);
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--primary-white);
     text-transform: uppercase;
     letter-spacing: 1px;
