@@ -63,6 +63,12 @@ function setActiveNavLink() {
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
 
+        // Skip external links
+        if (href.startsWith('http')) {
+            link.classList.remove('active');
+            return;
+        }
+
         // Handle home page
         if (currentPage === '' || currentPage === '/' || currentPage.includes('index')) {
             if (href === '#home' || href === 'index.html') {
