@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Assets - TheAngel</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .listings-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .listings-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .listings-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .listings-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .listings-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: center;
+        }
+
+        .filters-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .filters-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .filter-group input:focus,
+        .filter-group select:focus {
+            outline: none;
+            border-color: #bb41b4;
+            box-shadow: 0 0 0 3px rgba(187, 65, 180, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-filter {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #bb41b4;
+            background: white;
+            color: #bb41b4;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-filter:hover {
+            background: #bb41b4;
+            color: white;
+        }
+
+        .btn-filter.reset {
+            border-color: #999;
+            color: #999;
+        }
+
+        .btn-filter.reset:hover {
+            background: #999;
+            color: white;
+        }
+
+        .sort-section {
+            text-align: right;
+        }
+
+        .sort-section label {
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .sort-section select {
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .asset-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .asset-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .asset-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .asset-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 0.25rem;
+        }
+
+        .asset-symbol {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .asset-body {
+            padding: 1.5rem;
+        }
+
+        .asset-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .asset-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .asset-change {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .asset-change.positive {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .asset-change.negative {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .asset-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .asset-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-view {
+            flex: 1;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-view:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-invest {
+            flex: 1;
+            padding: 0.75rem;
+            background: #bb41b4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-invest:hover {
+            background: #9a2f94;
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #999;
+        }
+
+        .no-results h3 {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .listings-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .listings-header {
+                grid-template-columns: 1fr;
+            }
+
+            .assets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none;"><img src="assets/images/logo.png" alt="TheAngel Logo" class="logo-img"></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="investors.html" class="nav-link">Investors</a></li>
+                <li><a href="founders.html" class="nav-link">Founders</a></li>
+                <li><a href="company.html" class="nav-link">Company</a></li>
+                <li><a href="https://docs.theangel.app/" class="nav-link">Docs</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-signin">Sign In</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="listings-hero">
+        <h1>Explore Assets</h1>
+        <p>Browse and invest in tokenized startup equity from around the world</p>
+    </section>
+
+    <!-- Listings -->
+    <section class="listings-container">
+        <div class="listings-header">
+            <!-- Filters -->
+            <div class="filters-section">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label for="search">Search Assets</label>
+                    <input type="text" id="search" placeholder="Asset name or symbol...">
+                </div>
+                <div class="filter-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="">All Categories</option>
+                        <option value="fintech">FinTech</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="technology">Technology</option>
+                        <option value="ecommerce">E-Commerce</option>
+                        <option value="sustainability">Sustainability</option>
+                        <option value="real-estate">Real Estate</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="min-price">Min Price ($)</label>
+                    <input type="number" id="min-price" placeholder="0" min="0">
+                </div>
+                <div class="filter-group">
+                    <label for="max-price">Max Price ($)</label>
+                    <input type="number" id="max-price" placeholder="1000" min="0">
+                </div>
+                <div class="filter-buttons">
+                    <button class="btn-filter" id="apply-filters">Apply Filters</button>
+                    <button class="btn-filter reset" id="reset-filters">Reset</button>
+                </div>
+            </div>
+
+            <!-- Sort -->
+            <div class="sort-section">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="name">Name (A-Z)</option>
+                    <option value="price-low">Price (Low to High)</option>
+                    <option value="price-high">Price (High to Low)</option>
+                    <option value="change-high">Performance (High to Low)</option>
+                    <option value="change-low">Performance (Low to High)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Assets Grid -->
+        <div class="assets-grid" id="assets-grid">
+            <!-- Populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>TheAngel</h4>
+                <p>Global startup investment platform</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="investors.html">Investors</a></li>
+                    <li><a href="founders.html">Founders</a></li>
+                    <li><a href="company.html">Company</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="listings.html">Explore Assets</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="https://docs.theangel.app/">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TheAngel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign In</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Account</h2>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/listings.js"></script>
+</body>
+</html>
