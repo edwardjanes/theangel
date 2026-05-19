@@ -350,16 +350,13 @@ body {
 .stats-grid {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .stat-item {
     flex: 1;
     text-align: left;
-}
-
-.stat-item:last-child {
-    flex: 1;
+    min-width: 0;
 }
 
 .stat-number {
