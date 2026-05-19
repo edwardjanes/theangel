@@ -11,7 +11,7 @@
 :root {
     --primary-black: #000000;
     --primary-white: #FFFFFF;
-    --accent-pink: #EC4899;
+    --accent-pink: #bb41b4;
     --accent-green: #10b981;
     --accent-blue: #2563eb;
     --accent-gold: #FFD700;
@@ -121,7 +121,7 @@ body {
 }
 
 .btn-signup:hover {
-    background-color: #d1367a;
+    background-color: #9a2f94;
 }
 
 .hamburger {
@@ -233,7 +233,7 @@ body {
 .email-input-group input:focus {
     outline: none;
     border-color: var(--accent-pink);
-    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+    box-shadow: 0 0 0 3px rgba(187, 65, 180, 0.1);
 }
 
 .btn-get-started {
@@ -297,9 +297,9 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #d1367a;
+    background-color: #9a2f94;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 4px 12px rgba(187, 65, 180, 0.3);
 }
 
 .btn-secondary {
@@ -682,7 +682,7 @@ body {
 .modal-content input:focus {
     outline: none;
     border-color: var(--accent-pink);
-    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+    box-shadow: 0 0 0 3px rgba(187, 65, 180, 0.1);
 }
 
 .modal-content button {
