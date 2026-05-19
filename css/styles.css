@@ -145,7 +145,7 @@ body {
 /* New Hero Section */
 .hero-new {
     background: var(--primary-white);
-    padding: 4rem 2rem;
+    padding: 4rem 0;
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -153,8 +153,9 @@ body {
 }
 
 .hero-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -162,7 +163,7 @@ body {
 }
 
 .hero-left {
-    padding-right: 2rem;
+    padding-right: 1rem;
 }
 
 .hero-left h1 {
@@ -244,7 +245,7 @@ body {
 }
 
 .phone-mockup {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     object-fit: contain;
 }
